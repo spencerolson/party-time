@@ -7,16 +7,16 @@ $(document).ready(function () {
     request.done(function () { window.location = "/"; });
   });
 
-  $("ul").on("submit","#beerme", function(event){
+  $("button").on("click", function(event){
     event.preventDefault();
-    console.log("this is:" + $(this).attr("action"))
-    var url = $(this).attr("action")
+    console.log("button was clicked")
     $.ajax({
         type: "POST",
-        url: url
+        url: '/beerme'
       }).done(function(response){
-        console.log("Got AJAX response. Response is: " + response["beers"]);
-        $("#beer_count").text(response["beers"])
+        console.log("got response. it is: " + response)
+        $("#partial").empty();
+        $("#partial").append(response);
       });
   });
 

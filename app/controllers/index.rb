@@ -12,20 +12,27 @@ get '/parties/:party_id/party_goers/:party_goer_id' do
   erb :show_party_goer, layout: false
 end
 
-post '/parties/:party_id/party_goers/:party_goer_id' do
-  party = Party.find(params[:party_id])
-  party_goer = Person.find(params[:party_goer_id])
-  party_goer.brews << Beer.create(party_id: party.id)
-  redirect "/parties/#{party.id}/party_goers/#{party_goer.id}" if !request.xhr?
+# post '/parties/:party_id/party_goers/:party_goer_id' do
 
-  content_type :json
-  {beers: party_goer.brews_at_party(party.id).count}.to_json
+post '/beerme' do 
+
+  party_goer = Person.find(session[:person_id])
+  puts "brew count before: #{party_goer.brew_count}"
+  party_goer.brew_count += 1
+  party_goer.save
+  puts "valid? #{party_goer.errors.messages}"
+  puts "brew count after: #{party_goer.brew_count}"
+  redirect '/list_partiers'
 end
 
 get '/parties/:party_id' do
   @party = Party.find(params[:party_id])
 
   erb :show_party
+end
+
+get '/list_partiers' do
+  erb :_list_partiers, layout: false
 end
 
 

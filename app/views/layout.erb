@@ -20,12 +20,13 @@
 <body>
 
   <nav>
-
+    <img style="height: 40px; display:inline-block" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSzuMG7fzB81E5E-hRuTlrPBOg_4rntC8oCB-ZKnj4xiDlw5JeB">
     <div class="brand"><a href="/">Party Boy</a></div>
 
     <ul>
       <% if current_person %>
-        <li><a id="sign-out" href="/sessions/<%= current_person.id %>">Sign Out</a></li>
+
+        <li></li>
       <% else %>
         <li><a href="/sessions/new">Sign In</a></li>
         <li><a href="/people/new">Sign Up</a></li>
@@ -33,8 +34,14 @@
     </ul>
 
   </nav>
+
   <div class="container">
     <%= yield %>
   </div>
+
+<div id="partial">
+  <%= erb :_list_partiers %>
+</div>
+  
 </body>
 </html>

@@ -1,17 +1,2 @@
 
-  <h1>Party Time</h1>
-  <ul>
-    <% @people.each do |person|%>
-      <li> Host: <%= person.name %></li>
-      <ul>
-        <% person.hosted_parties.each do |party| %>
-          <li> Theme: <a href="/parties/<%= party.id %>"> <%= party.theme%> </a></li>
-        <% end %>
-      </ul>
-    <% end %>
-    <form method="post" action='/add_party'>
-      <input type="text" placeholder="Theme here brah" name="party[theme]">
-      <input type="submit" value="Cheers breh!">
-    </form>
-  </ul>
-
+<center><button class="btn btn-primary btn-lg" formmethod="post" formaction="/brewme"> Brew me </button></center>

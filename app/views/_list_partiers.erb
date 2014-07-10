@@ -1,0 +1,10 @@
+
+  <h3> Partiers</h3>
+    <ul class="list-group">
+    <% Person.order(:brew_count => :desc).each do |person|%>
+      <li class="list-group-item">
+        <span class="badge"><%= person.brew_count %></span>
+        <%= person.name %>
+      </li>
+    <% end %>
+    </ul>
