@@ -1,0 +1,14 @@
+<h1> Party Deets. Breh.</h1>
+
+<h3>Host: <%= @party.host.name %></h3>
+<h3>Theme: <%= @party.theme %></h3>
+<h3>Righteous Party-goers: <h3>
+  <ul>
+    <% @party.party_goers.each do |party_goer| %>
+      <li>
+        <a class="booty_booty_booty_booty_rockin_everywhere" href= "/parties/<%= @party.id%>/party_goers/<%= party_goer.id %>"><%= party_goer.name %></a>
+      </li>
+      <li></li>
+    <% end %>
+  </ul>
+
