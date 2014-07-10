@@ -81,3 +81,13 @@ post '/people' do
     erb :sign_up
   end
 end
+
+#---------Party
+
+post '/add_party' do 
+  @party = Party.create(params[:party])
+  @party.person_id = session[:person_id]
+  @party.save
+
+  redirect to "/parties/#{@party.id}"
+end

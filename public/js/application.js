@@ -7,7 +7,7 @@ $(document).ready(function () {
     request.done(function () { window.location = "/"; });
   });
 
-  $("#beerme").on("submit", function(event){
+  $("ul").on("submit","#beerme", function(event){
     event.preventDefault();
     console.log("this is:" + $(this).attr("action"))
     var url = $(this).attr("action")

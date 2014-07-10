@@ -4,5 +4,5 @@
 <h3> Number of Beers: <span id="beer_count"><%= @party_goer.brews_at_party(@party.id).count %></span></h3>
 
 <form id="beerme"action="/parties/<%= @party.id %>/party_goers/<%= @party_goer.id%>" method="post">
-  <input type="submit" value="Give <%= @party_goer.name %> a beer">
+  <input class="btn btn-primary btn-lg" type="submit" value="Give <%= @party_goer.name %> a beer">
 </form>
